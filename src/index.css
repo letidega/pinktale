@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7b5455;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #f4c2c2;
+  --color-on-primary-container: #734e4e;
+  --color-primary-fixed: #ffdad9;
+  --color-primary-fixed-dim: #ecbaba;
+  --color-inverse-primary: #ecbaba;
+  --color-secondary: #874f4f;
+  --color-secondary-container: #ffb7b6;
+  --color-on-secondary-container: #7b4545;
+  --color-tertiary: #735c00;
+  --color-tertiary-container: #f1ca50;
+  --color-on-tertiary-container: #6b5500;
+  --color-tertiary-fixed: #ffe088;
+  --color-background: #fbf4f3;
+  --color-on-background: #1a1c1a;
+  --color-surface: #fbf4f3;
+  --color-on-surface: #1a1c1a;
+  --color-surface-variant: #f2e1e0;
+  --color-on-surface-variant: #504444;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8e8e6;
+  --color-surface-container: #f5dfdd;
+  --color-surface-container-high: #f2d6d4;
+  --color-surface-container-highest: #efcecc;
+  --color-surface-bright: #fbf4f3;
+  --color-surface-dim: #e8d6d5;
+  --color-outline: #827473;
+  --color-outline-variant: #d4c2c2;
+
+  /* Dark mode overrides */
+  --color-dark-bg: #211e1e;
+  --color-dark-surface: #2d2626;
+  --color-dark-text: #e5d3c0;
+  --color-dark-text-muted: #bfa99f;
+  --color-dark-border: #3d342f;
+
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-h1: "Noto Serif", serif;
+  --font-h2: "Noto Serif", serif;
+  --font-h3: "Noto Serif", serif;
+  --font-body-lg: "Plus Jakarta Sans", sans-serif;
+  --font-body-md: "Plus Jakarta Sans", sans-serif;
+  --font-caption: "Plus Jakarta Sans", sans-serif;
+  --font-label-md: "Plus Jakarta Sans", sans-serif;
+
+  --spacing-gutter: 16px;
+  --spacing-container-padding: 24px;
+  --spacing-unit: 8px;
+  --spacing-section-margin: 40px;
+  --spacing-card-gap: 20px;
+  
+  --radius-card: 24px;
+}
+
+@utility watercolor-bg {
+  background-image: radial-gradient(circle at 10% 20%, rgba(244, 194, 194, 0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 218, 217, 0.2) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+@utility floral-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c1.5 0 3 1.5 3 3s-1.5 3-3 3-3-1.5-3-3 1.5-3 3-3zm10 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z' fill='%23a86b6b' fill-opacity='0.03'/%3E%3C/svg%3E");
+}
+
+@utility texture-bg {
+  background-color: #fbf4f3;
+  background-image: radial-gradient(circle at center, rgba(244, 194, 194, 0.05) 0%, transparent 100%), linear-gradient(to right, rgba(168, 107, 107, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(168, 107, 107, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+}
+
+@utility diary-paper {
+  background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(168,107,107,0.1) 31px, rgba(168,107,107,0.1) 32px);
+  line-height: 32px;
+  padding-top: 8px;
+}
+
+@utility diary-lines {
+  background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(168,107,107,0.1) 31px, rgba(168,107,107,0.1) 32px);
+  line-height: 32px;
+}
+
+.floral-divider-before::before {
+  content: '✿';
+  font-size: 10px;
+  color: #A86B6B;
+  opacity: 0.5;
+  margin-right: 0.5rem;
+}
+
+.floral-divider-after::after {
+  content: '✿';
+  font-size: 10px;
+  color: #A86B6B;
+  opacity: 0.5;
+  margin-left: 0.5rem;
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html, body {
+  min-height: 100%;
+}
+
+@layer base {
+  .dark {
+    --color-background: var(--color-dark-bg);
+    --color-surface: var(--color-dark-surface);
+    --color-surface-container-lowest: #252222;
+    --color-surface-container-low: #2a2626;
+    --color-surface-container: #2d2929;
+    --color-surface-container-high: #332f2f;
+    --color-surface-container-highest: #383434;
+    --color-primary-container: #4a3b3b;
+    --color-on-primary-container: #f4c2c2;
+    --color-secondary-container: #4a3434;
+    --color-on-secondary-container: #ffb7b6;
+    --color-tertiary-container: #4a412f;
+    --color-on-tertiary-container: #ffe088;
+    --color-on-background: var(--color-dark-text);
+    --color-on-surface: var(--color-dark-text);
+    --color-on-surface-variant: var(--color-dark-text-muted);
+    --color-outline-variant: var(--color-dark-border);
+  }
+
+  .dark .watercolor-bg {
+    background-image: radial-gradient(circle at 10% 20%, rgba(123, 84, 85, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 90% 80%, rgba(115, 78, 78, 0.05) 0%, transparent 40%);
+  }
+
+  body {
+    @apply transition-colors duration-300;
+  }
+}
